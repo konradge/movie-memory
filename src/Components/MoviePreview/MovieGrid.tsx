@@ -8,9 +8,11 @@ type Props = { movies: Movie[] };
 const MovieGrid = ({ movies }: Props) => {
   return (
     <Grid container>
-      {movies.map((m) => (
-        <MoviePreview movie={m} />
-      ))}
+      {movies
+        .sort((m, n) => (n.popularity || 0) - (m.popularity || 0))
+        .map((m) => (
+          <MoviePreview movie={m} />
+        ))}
     </Grid>
   );
 };

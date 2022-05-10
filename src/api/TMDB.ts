@@ -3,6 +3,8 @@ export interface Movie {
   id?: number;
   poster_path?: string | null;
   overview?: string;
+  popularity?: number;
+  release_date?: string;
 }
 
 const searchMovie = (query: string) => {
@@ -12,7 +14,11 @@ const searchMovie = (query: string) => {
   );
 };
 
-const get = <T>(endpoint: string, query: string) => {
+const getMovieInfo = (movieId: string | number) => {
+  return get<any>(`/movie/${movieId}`);
+};
+
+const get = <T>(endpoint: string, query?: string) => {
   return new Promise<T>((resolve, reject) => {
     fetch(
       `https://api.themoviedb.org/3${endpoint}?api_key=${process.env.REACT_APP_TMDB_API_KEY}&${query}`
@@ -26,4 +32,4 @@ const image = (path: string): string => {
   return `https://image.tmdb.org/t/p/w500/${path}`;
 };
 
-export default { searchMovie, image };
+export default { searchMovie, getMovieInfo, image };
