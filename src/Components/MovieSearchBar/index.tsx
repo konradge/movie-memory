@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import TextField from "@mui/material/TextField";
-import TMDB, { Movie } from "../../api/TMDB";
+import TMDB, { MovieOverviewType } from "../../api/TMDB";
 import MovieGrid from "../MoviePreview/MovieGrid";
 
 type Props = {};
 
 const MovieSearchBar = (props: Props) => {
   const [query, setQuery] = useState("");
-  const [results, setResults] = useState<Movie[]>([]);
+  const [results, setResults] = useState<MovieOverviewType[]>([]);
 
   useEffect(() => {
     // Rerun the query to TMDB

@@ -1,9 +1,9 @@
 import { Grid } from "@mui/material";
 import React from "react";
 import MoviePreview from "./MovieCard";
-import { Movie } from "../../api/TMDB";
+import { MovieOverviewType } from "../../api/TMDB";
 
-type Props = { movies: Movie[] };
+type Props = { movies: MovieOverviewType[] };
 
 const MovieGrid = ({ movies }: Props) => {
   return (
@@ -11,7 +11,7 @@ const MovieGrid = ({ movies }: Props) => {
       {movies
         .sort((m, n) => (n.popularity || 0) - (m.popularity || 0))
         .map((m) => (
-          <MoviePreview movie={m} />
+          <MoviePreview key={m.id} movie={m} />
         ))}
     </Grid>
   );

@@ -10,10 +10,10 @@ import {
 import InfoIcon from "@mui/icons-material/Info";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import React from "react";
-import TMDB, { Movie } from "../../api/TMDB";
+import TMDB, { MovieOverviewType } from "../../api/TMDB";
 import { useNavigate } from "react-router-dom";
 
-type Props = { movie: Movie };
+type Props = { movie: MovieOverviewType };
 
 const MoviePreview = ({ movie }: Props) => {
   const navigate = useNavigate();
@@ -44,12 +44,12 @@ const MoviePreview = ({ movie }: Props) => {
         <div style={{ width: 30, height: 200 }} />
       </CardContent>
       <CardActions style={{ alignItems: "center" }} disableSpacing>
-        <IconButton>
-          <InfoIcon
-            onClick={() => {
-              navigate(`/movie/${movie.id}`);
-            }}
-          />
+        <IconButton
+          onClick={() => {
+            navigate(`/movie/${movie.id}`);
+          }}
+        >
+          <InfoIcon />
         </IconButton>
         <IconButton>
           <AddCircleIcon />
