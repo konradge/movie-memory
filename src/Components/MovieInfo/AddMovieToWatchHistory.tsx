@@ -1,3 +1,4 @@
+import { Button, TextField } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { getWatchDates, addWatchDate } from "../../api/InternalAPI";
 import Popup from "../../Popup";
@@ -32,7 +33,11 @@ function AddMovieToWatchHistory({ title, id }: Props) {
           value={inputDate}
           onChange={(e) => setInputDate(e.target.value)}
         />
-        <button
+        <br />
+        <TextField label="Comments" multiline rows={4}></TextField>
+        <br />
+        <Button
+          variant="outlined"
           onClick={() => {
             addWatchDate(id, new Date(inputDate));
             setIsPopupOpen(false);
@@ -40,7 +45,7 @@ function AddMovieToWatchHistory({ title, id }: Props) {
           }}
         >
           OK!
-        </button>
+        </Button>
       </Popup>
       <button
         onClick={() => {

@@ -5,27 +5,33 @@ import TMDB, { MovieType } from "../../api/TMDB";
 import Popup from "../../Popup";
 import AddMovieToWatchHistory from "./AddMovieToWatchHistory";
 import "./style.css";
+import WatchTimeline from "./WatchTimeline";
 
 type Props = {};
 
 const MovieInfo = ({}: Props) => {
   const { id } = useParams();
-  if (id === undefined) return <div>An error occured!</div>;
+
   const [movieInfo, setMovieInfo] = useState<MovieType | null>(null);
 
   useEffect(() => {
     // Rerun the query to TMDB
     (async () => {
-      const info = await TMDB.getMovieInfo(id);
-      setMovieInfo(info);
+      if (id !== undefined) {
+        const info = await TMDB.getMovieInfo(id);
+        setMovieInfo(info);
+      }
     })();
   }, [id]);
+
+  if (id === undefined) return <div>An error occured!</div>;
 
   if (movieInfo === null) return <div>Loading...</div>;
   return (
     <div>
       <div className="div-beside-wrapper">
         <div>
+          hello
           {movieInfo.poster_path && (
             <img src={TMDB.image(movieInfo.poster_path)} />
           )}
@@ -39,6 +45,7 @@ const MovieInfo = ({}: Props) => {
           </h1>
           <div>{movieInfo.overview}</div>
         </div>
+        <WatchTimeline />
       </div>
       <div className="div-beside-wrapper">
         <div>
