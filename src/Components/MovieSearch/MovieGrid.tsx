@@ -19,7 +19,7 @@ const MovieGrid = ({}: Props) => {
   });
 
   if (query === undefined) return <div>Please provide a query!</div>;
-  if (movies === null) return <div>Loading...</div>;
+  if (movies == null) return <div>Loading...</div>;
   return (
     <Grid container>
       {movies

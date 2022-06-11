@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { getWatchDates, addWatchDate } from "../../api/InternalAPI";
 import Popup from "../../Popup";
 
-type Props = { title?: string; id: string };
+type Props = { title?: string; id: number };
 
 function AddMovieToWatchHistory({ title, id }: Props) {
   const [isPopupOpen, setIsPopupOpen] = useState(false);

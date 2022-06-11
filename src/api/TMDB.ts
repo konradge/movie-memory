@@ -1,3 +1,6 @@
+import { useEffect, useState } from "react";
+import MovieImages from "../Components/MovieInfo/MovieImages";
+
 export interface MovieOverviewType {
   poster_path?: string | null;
   adult?: boolean;
@@ -78,6 +81,24 @@ const get = <T>(endpoint: string, query?: string) => {
       .then((res) => resolve(res.json()))
       .catch((err) => reject(err));
   });
+};
+
+interface MovieImages {
+  backdrops: { file_path: string }[];
+  logos: { file_path: string }[];
+  posters: { file_path: string }[];
+}
+
+export const useMovieImages = (movieId: number) => {
+  const [movieImages, setMovieImages] = useState<null | MovieImages>(null);
+  useEffect(() => {
+    (async () => {
+      const result = await get<MovieImages>(`/movie/${movieId}/images`);
+      setMovieImages(result);
+    })();
+  }, [movieId]);
+
+  return movieImages;
 };
 
 const image = (path: string): string => {
