@@ -1,12 +1,12 @@
 import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import TMDB, { useMovieImages } from "../../api/TMDB";
+import TMDB from "../../api/TMDB";
 
 type Props = { movieId: number };
 
 const MovieImages = ({ movieId }: Props) => {
-  const imgs = useMovieImages(movieId);
+  const imgs = TMDB.useGetMovieImages(movieId);
   console.log(imgs);
 
   if (imgs === null) return <div>Loading</div>;
@@ -25,7 +25,7 @@ const MovieImages = ({ movieId }: Props) => {
       >
         {imgs.backdrops.map((i) => (
           <div>
-            <img src={TMDB.image(i.file_path)} />
+            <img src={TMDB.getImageURL(i.file_path)} />
           </div>
         ))}
       </Carousel>

@@ -1,8 +1,8 @@
-import { Circle } from "@mui/icons-material";
-import { CircularProgress, Skeleton } from "@mui/material";
+import { Skeleton } from "@mui/material";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import TMDB, { MovieOverviewType, MovieType } from "../../api/TMDB";
+import TMDB from "../../api/TMDB";
+import { MovieOverviewType } from "../../api/TMDB.types";
 import CircularRating from "../CircularRating";
 
 import "./style.css";
@@ -11,20 +11,13 @@ type Props = { movie: MovieOverviewType };
 
 const MoviePreview = ({ movie }: Props) => {
   const navigate = useNavigate();
-  const [movieDetails, setMovieDetails] = useState<MovieType | null>(null);
-  // return <div>OK?</div>;
+  const movieDetails = TMDB.useGetMovieInfo(movie.id ? movie.id : 0);
   return (
     <div
       className="container"
       onMouseEnter={() => {
         console.log("enter");
-
-        (async () => {
-          if (movie.id !== undefined && movieDetails === null) {
-            const info = await TMDB.getMovieInfo(movie.id);
-            setMovieDetails(info);
-          }
-        })();
+        // TODO: Request movie info only if card was entered
       }}
       onClick={() => {
         navigate(`/movie/${movie.id}`);
@@ -32,7 +25,7 @@ const MoviePreview = ({ movie }: Props) => {
     >
       {movie.poster_path ? (
         <img
-          src={TMDB.image(movie.poster_path)}
+          src={TMDB.getImageURL(movie.poster_path)}
           height={400}
           className="image"
         />

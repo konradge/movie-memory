@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import { getWatchDates, addWatchDate } from "../../api/InternalAPI";
-import TMDB, { MovieType } from "../../api/TMDB";
-import Popup from "../../Popup";
+import TMDB from "../../api/TMDB";
+import { MovieType } from "../../api/TMDB.types";
+import Actors from "./Actors";
 import AddMovieToWatchHistory from "./AddMovieToWatchHistory";
 import MovieImages from "./MovieImages";
 import "./style.css";
@@ -13,17 +13,7 @@ type Props = {};
 const MovieInfo = ({}: Props) => {
   const id = Number(useParams().id);
 
-  const [movieInfo, setMovieInfo] = useState<MovieType | null>(null);
-
-  useEffect(() => {
-    // Rerun the query to TMDB
-    (async () => {
-      if (id !== undefined) {
-        const info = await TMDB.getMovieInfo(id);
-        setMovieInfo(info);
-      }
-    })();
-  }, [id]);
+  const movieInfo = TMDB.useGetMovieInfo(id);
 
   if (id === undefined) return <div>An error occured!</div>;
 
@@ -38,6 +28,7 @@ const MovieInfo = ({}: Props) => {
         </h1>
       </div>
       <MovieImages movieId={id} />
+      <Actors movieId={id} />
       <div className="div-beside-wrapper">
         <div>
           <div>{movieInfo.overview}</div>
