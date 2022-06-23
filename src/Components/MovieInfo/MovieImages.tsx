@@ -24,7 +24,7 @@ const MovieImages = ({ movieId }: Props) => {
         interval={2000}
       >
         {imgs.backdrops.map((i) => (
-          <div>
+          <div key={i.file_path}>
             <img src={TMDB.getImageURL(i.file_path)} />
           </div>
         ))}
