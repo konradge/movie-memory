@@ -4,8 +4,10 @@
 
 /* Container needed to position the overlay. Adjust the width as needed */
 .container {
+  display: flex;
   position: relative;
   max-width: 300px;
+  align-items: stretch;
 }
 
 /* Make the image to responsive */
@@ -25,14 +27,29 @@
   color: #f1f1f1;
   width: 100%;
   transition: 0.5s ease;
-  opacity: 0;
+  opacity: 1;
   color: white;
   font-size: 20px;
   padding: 20px;
   text-align: center;
+  text-justify: distribute;
+  min-height: 100%;
+  vertical-align: bottom;
+  align-items: center;
 }
 
 /* When you mouse over the container, fade in the overlay title */
 .container:hover .overlay {
-  opacity: 1;
+  opacity: 0;
+}
+
+.content-parent {
+  position: absolute;
+  /* border-color: "green";
+  border-style: solid;
+  border-width: 1px; */
+  width: 100%;
+  bottom: 20px;
+  left: 0;
+  vertical-align: text-bottom;
 }

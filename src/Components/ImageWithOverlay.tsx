@@ -65,7 +65,7 @@ const ImageWithOverlay = ({
         <Skeleton variant="rectangular" height={225} width={150} />
       )}
       <div className="overlay" style={alwaysShowOverlay ? { opacity: 1 } : {}}>
-        {overlay}
+        <div className="content-parent">{overlay}</div>
       </div>
     </div>
   );
