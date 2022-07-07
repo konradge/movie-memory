@@ -1,5 +1,4 @@
 import { Box, CircularProgress, Typography } from "@mui/material";
-import React from "react";
 
 type Props = { value: number };
 

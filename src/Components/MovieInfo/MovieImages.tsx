@@ -1,4 +1,3 @@
-import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import TMDB from "../../api/TMDB";
@@ -25,7 +24,7 @@ const MovieImages = ({ movieId }: Props) => {
       >
         {imgs.backdrops.map((i) => (
           <div key={i.file_path}>
-            <img src={TMDB.getImageURL(i.file_path)} />
+            <img alt={i.file_path} src={TMDB.getImageURL(i.file_path)} />
           </div>
         ))}
       </Carousel>

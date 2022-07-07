@@ -15,7 +15,7 @@ const useRequestTMDB = <T>(endpoint: string, query?: string) => {
     (async () => {
       const result = await typedFetch<T>(
         `https://api.themoviedb.org/3${endpoint}?api_key=${
-          process.env.REACT_APP_TMDB_API_KEY
+          process.env["REACT_APP_TMDB_API_KEY"]
         }${query ? `&${query}` : ``}`
       );
       setResult(result);

@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import TextField from "@mui/material/TextField";
 import { useNavigate } from "react-router-dom";
 
-type Props = {};
-
-const MovieSearchBar = (props: Props) => {
+const MovieSearchBar = () => {
   const navigate = useNavigate();
   const [query, setQuery] = useState("");
 

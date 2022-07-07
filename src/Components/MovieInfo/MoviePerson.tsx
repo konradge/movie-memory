@@ -1,7 +1,5 @@
-import React from "react";
-import { act } from "react-dom/test-utils";
 import TMDB from "../../api/TMDB";
-import { ActorType, CrewType, MoviePersonType } from "../../api/TMDB.types";
+import { ActorType, CrewType } from "../../api/TMDB.types";
 
 type Props = { crewPerson?: CrewType; actorPerson?: ActorType };
 
@@ -23,7 +21,10 @@ const MoviePerson = ({ crewPerson, actorPerson }: Props) => {
       <h1>{actorPerson.name}</h1>
       <h3>{actorPerson.character}</h3>
       {actorPerson.profile_path && (
-        <img src={TMDB.getImageURL(actorPerson.profile_path)} />
+        <img
+          alt={actorPerson.name}
+          src={TMDB.getImageURL(actorPerson.profile_path)}
+        />
       )}
     </div>
   );

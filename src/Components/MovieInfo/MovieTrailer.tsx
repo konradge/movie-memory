@@ -1,4 +1,3 @@
-import React from "react";
 import TMDB from "../../api/TMDB";
 
 type Props = { movieId: number };
@@ -7,13 +6,13 @@ function MovieTrailer({ movieId }: Props) {
   const videos = TMDB.useGetMovieVideos(movieId);
 
   if (videos && videos.results.length !== 0) {
-    const url = videos.results
+    const url = videos?.results
       .filter((v) => v.type === "Trailer")
       .sort(
         (v, w) =>
           new Date(v.published_at).getTime() -
           new Date(w.published_at).getTime()
-      )[0].key;
+      )[0]?.key;
     console.log(url);
     return (
       <iframe

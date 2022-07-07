@@ -1,5 +1,4 @@
 import { Card, CardContent, Typography } from "@mui/material";
-import React from "react";
 import { useParams } from "react-router-dom";
 import TMDB from "../../api/TMDB";
 import Actors from "./Actors";
@@ -9,7 +8,7 @@ import "./style.css";
 import WatchTimeline from "./WatchTimeline";
 
 const MovieInfo = () => {
-  const id = Number(useParams().id);
+  const id = Number(useParams()["id"]);
 
   const movieInfo = TMDB.useGetMovieInfo(id);
 
@@ -39,7 +38,7 @@ const MovieInfo = () => {
       </div>
       <div className="div-beside-wrapper">
         <div>
-          <AddMovieToWatchHistory title={movieInfo.title} id={id} />
+          <AddMovieToWatchHistory title={movieInfo.title || ""} id={id} />
         </div>
       </div>
     </div>

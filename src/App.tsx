@@ -1,4 +1,3 @@
-import React from "react";
 import Home from "./Components/Home";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import MovieInfo from "./Components/MovieInfo";

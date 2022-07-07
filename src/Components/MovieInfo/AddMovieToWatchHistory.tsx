@@ -12,7 +12,7 @@ function AddMovieToWatchHistory({ title, id }: Props) {
     const watchDates = getWatchDates(id).sort(
       (a, b) => a.getTime() - b.getTime()
     );
-    setLastSeen(watchDates[watchDates.length - 1]);
+    setLastSeen(watchDates[watchDates.length - 1] || null);
   };
 
   const [inputDate, setInputDate] = useState("");
@@ -21,7 +21,7 @@ function AddMovieToWatchHistory({ title, id }: Props) {
 
   useEffect(() => {
     updateLastSeen();
-  }, []);
+  });
 
   return (
     <React.Fragment>

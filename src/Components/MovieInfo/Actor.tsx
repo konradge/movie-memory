@@ -1,5 +1,4 @@
 import { Typography } from "@mui/material";
-import React from "react";
 import TMDB from "../../api/TMDB";
 import { ActorType } from "../../api/TMDB.types";
 import ImageWithOverlay from "../ImageWithOverlay";

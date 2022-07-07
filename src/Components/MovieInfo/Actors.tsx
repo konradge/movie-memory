@@ -1,4 +1,3 @@
-import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import TMDB from "../../api/TMDB";
 import Actor from "./Actor";

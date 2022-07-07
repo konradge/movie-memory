@@ -1,5 +1,4 @@
 import { Grid } from "@mui/material";
-import React from "react";
 import MoviePreview from "./MovieCard";
 import TMDB from "../../api/TMDB";
 import { useParams } from "react-router-dom";

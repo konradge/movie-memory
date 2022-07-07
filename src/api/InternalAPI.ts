@@ -6,7 +6,7 @@ export const getWatchDates = (movieId: number): Date[] => {
 
 export const addWatchDate = (movieId: number, date: Date) => {
   if (!watchDates[movieId]) watchDates[movieId] = [];
-  watchDates[movieId].push(date);
+  watchDates[movieId]?.push(date);
 };
 
 // Wrapper for getting a specific type from fetch-API
