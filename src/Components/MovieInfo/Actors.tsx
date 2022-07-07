@@ -14,8 +14,6 @@ const Actors = ({ movieId }: Props) => {
 
   if (credits === null) return <div>Loading...</div>;
 
-  credits.cast;
-
   return (
     <ImageCarousel
       children={credits.cast.map((c) => (

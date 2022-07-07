@@ -8,9 +8,8 @@ type Props = {};
 
 const MovieGrid = ({}: Props) => {
   const { query } = useParams();
+  const movies = TMDB.useSearchMovie(query || "");
   if (query === undefined) return <div>Please provide a query!</div>;
-
-  const movies = TMDB.useSearchMovie(query);
 
   if (movies == null) return <div>Loading...</div>;
   return (
