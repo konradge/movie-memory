@@ -1,4 +1,4 @@
-import { Skeleton } from "@mui/material";
+import { Skeleton, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import TMDB from "../../api/TMDB";
@@ -25,9 +25,12 @@ const MoviePreview = ({ movie }: Props) => {
       overlay={
         <React.Fragment>
           <div>
-            {movie.title}
-            {movie.release_date &&
-              ` (${new Date(movie.release_date).getFullYear()})`}
+            <Typography variant="h5">{movie.title}</Typography>
+            {movie.release_date && (
+              <Typography variant="body1">
+                ({new Date(movie.release_date).getFullYear()})
+              </Typography>
+            )}
           </div>
           <div>{movieDetails && movieDetails.runtime} minutes</div>
           <CircularRating

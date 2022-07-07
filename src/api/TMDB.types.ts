@@ -105,3 +105,5 @@ export type Credits = {
   cast: ActorType[];
   crew: CrewType[];
 };
+
+export type MovieVideo = { key: string; published_at: string; type: string };

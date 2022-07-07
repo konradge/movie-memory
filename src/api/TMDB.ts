@@ -5,6 +5,7 @@ import {
   MovieImagesType,
   MovieOverviewType,
   MovieType,
+  MovieVideo,
 } from "./TMDB.types";
 
 // Wrapper-Hook to request any TMDB-endpoint
@@ -43,6 +44,12 @@ const useGetMovieCredits = (movieId: number) => {
   return useRequestTMDB<Credits>(`/movie/${movieId}/credits`);
 };
 
+const useGetMovieVideos = (movieId: number) => {
+  return useRequestTMDB<{ id: number; results: MovieVideo[] }>(
+    `/movie/${movieId}/videos`
+  );
+};
+
 const getImageURL = (path: string): string => {
   return `https://image.tmdb.org/t/p/w500/${path}`;
 };
@@ -54,4 +61,5 @@ export default {
   useGetMovieImages,
   getImageURL,
   useGetMovieCredits,
+  useGetMovieVideos,
 };

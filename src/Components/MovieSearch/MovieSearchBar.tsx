@@ -15,6 +15,7 @@ const MovieSearchBar = (props: Props) => {
         onKeyDown={(e) =>
           e.key === "Enter" ? navigate(`/search/${query}`) : null
         }
+        placeholder="Search for movie"
       />
     </div>
   );
