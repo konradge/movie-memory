@@ -1,8 +1,9 @@
 import React from "react";
 import Home from "./Components/Home";
-import { Routes, Route, BrowserRouter, Link, Outlet } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import MovieInfo from "./Components/MovieInfo";
 import MovieGrid from "./Components/MovieSearch/MovieGrid";
+import { Counter } from "./Counter";
 
 // const Router = () => {
 //   const routes: RouteObject[] = [
@@ -34,6 +35,7 @@ import MovieGrid from "./Components/MovieSearch/MovieGrid";
 function App() {
   return (
     <BrowserRouter>
+      <Counter />
       <Routes>
         <Route path="/" element={<Home />}>
           <Route path="search/:query" element={<MovieGrid />} />

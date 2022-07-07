@@ -1,4 +1,4 @@
-import React, { Children } from "react";
+import React from "react";
 import "./Popup.css";
 
 type Props = { children: React.ReactNode; isOpen: boolean };

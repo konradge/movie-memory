@@ -1,18 +1,14 @@
 import { Card, CardContent, Typography } from "@mui/material";
-import React, { useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 import TMDB from "../../api/TMDB";
-import { MovieType } from "../../api/TMDB.types";
 import Actors from "./Actors";
 import AddMovieToWatchHistory from "./AddMovieToWatchHistory";
-import MovieImages from "./MovieImages";
 import MovieTrailer from "./MovieTrailer";
 import "./style.css";
 import WatchTimeline from "./WatchTimeline";
 
-type Props = {};
-
-const MovieInfo = ({}: Props) => {
+const MovieInfo = () => {
   const id = Number(useParams().id);
 
   const movieInfo = TMDB.useGetMovieInfo(id);

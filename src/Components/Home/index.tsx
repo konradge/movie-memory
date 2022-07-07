@@ -3,8 +3,7 @@ import { Outlet } from "react-router-dom";
 import MovieSearchBar from "../MovieSearch/MovieSearchBar";
 
 type Props = {};
-
-export default (props: Props) => {
+const Home = (props: Props) => {
   return (
     <div>
       <MovieSearchBar />
@@ -12,3 +11,5 @@ export default (props: Props) => {
     </div>
   );
 };
+
+export default Home;

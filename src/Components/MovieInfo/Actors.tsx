@@ -1,11 +1,8 @@
 import React from "react";
-import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { createWatchCompilerHost } from "typescript";
 import TMDB from "../../api/TMDB";
 import Actor from "./Actor";
 import ImageCarousel from "./ImageCarousel";
-import MoviePerson from "./MoviePerson";
 
 type Props = { movieId: number };
 

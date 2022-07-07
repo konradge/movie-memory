@@ -1,5 +1,5 @@
 import { Skeleton } from "@mui/material";
-import React, { ReactNode, useEffect, useRef, useState } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 import "./overlay.css";
 
 type Props = {
@@ -52,13 +52,14 @@ const ImageWithOverlay = ({
   });
   return (
     <div className="container" onMouseEnter={onMouseEnter} onClick={onClick}>
-      {imageDimensions != undefined ? (
+      {imageDimensions !== undefined ? (
         <img
+          alt=""
           src={src}
           className="image"
           style={{
-            height: imageDimensions.height,
-            width: imageDimensions.width,
+            height: imageDimensions?.height,
+            width: imageDimensions?.width,
           }}
         />
       ) : (

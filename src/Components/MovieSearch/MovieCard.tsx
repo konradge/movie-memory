@@ -1,5 +1,5 @@
-import { Skeleton, Typography } from "@mui/material";
-import React, { useState } from "react";
+import { Typography } from "@mui/material";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import TMDB from "../../api/TMDB";
 import { MovieOverviewType } from "../../api/TMDB.types";

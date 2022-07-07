@@ -1,12 +1,10 @@
 import { Grid } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import MoviePreview from "./MovieCard";
 import TMDB from "../../api/TMDB";
 import { useParams } from "react-router-dom";
 
-type Props = {};
-
-const MovieGrid = ({}: Props) => {
+const MovieGrid = () => {
   const { query } = useParams();
   const movies = TMDB.useSearchMovie(query || "");
   if (query === undefined) return <div>Please provide a query!</div>;
