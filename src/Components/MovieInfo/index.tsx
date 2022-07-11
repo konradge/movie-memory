@@ -1,6 +1,6 @@
 import { Card, CardContent, Typography } from "@mui/material";
 import { useParams } from "react-router-dom";
-import TMDB from "../../api/TMDB";
+import { useGetMovie } from "../../hooks/MovieAPIHooks";
 import Actors from "./Actors";
 import AddMovieToWatchHistory from "./AddMovieToWatchHistory";
 import MovieTrailer from "./MovieTrailer";
@@ -10,7 +10,7 @@ import WatchTimeline from "./WatchTimeline";
 const MovieInfo = () => {
   const id = Number(useParams()["id"]);
 
-  const movieInfo = TMDB.useGetMovieInfo(id);
+  const movieInfo = useGetMovie(id);
 
   if (id === undefined) return <div>An error occured!</div>;
 

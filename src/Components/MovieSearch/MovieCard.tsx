@@ -1,16 +1,18 @@
 import { Typography } from "@mui/material";
 import { Fragment } from "react";
 import { useNavigate } from "react-router-dom";
-import TMDB from "../../api/TMDB";
-import { MovieOverviewType } from "../../api/TMDB.types";
+import { useGetMovie } from "../../hooks/MovieAPIHooks";
+import { MovieOverviewType } from "../../types/Movie.types";
 import CircularRating from "../CircularRating";
 import ImageWithOverlay from "../ImageWithOverlay";
-
 type Props = { movie: MovieOverviewType };
 
 const MoviePreview = ({ movie }: Props) => {
   const navigate = useNavigate();
-  const movieDetails = TMDB.useGetMovieInfo(movie.id ? movie.id : 0);
+  const movieDetails = useGetMovie(movie.id ? movie.id : 0);
+
+  console.log("Previewing movie: ");
+  console.log(movie);
 
   return (
     <ImageWithOverlay
@@ -22,7 +24,7 @@ const MoviePreview = ({ movie }: Props) => {
         navigate(`/movie/${movie.id}`);
       }}
       height={400}
-      src={movie.poster_path ? TMDB.getImageURL(movie.poster_path) : undefined}
+      src={movie.poster_path || undefined}
       overlay={
         <Fragment>
           <div>

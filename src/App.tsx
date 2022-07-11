@@ -2,7 +2,6 @@ import Home from "./Components/Home";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import MovieInfo from "./Components/MovieInfo";
 import MovieGrid from "./Components/MovieSearch/MovieGrid";
-import { Counter } from "./Counter";
 
 // const Router = () => {
 //   const routes: RouteObject[] = [
@@ -34,7 +33,6 @@ import { Counter } from "./Counter";
 function App() {
   return (
     <BrowserRouter>
-      <Counter />
       <Routes>
         <Route path="/" element={<Home />}>
           <Route path="search/:query" element={<MovieGrid />} />

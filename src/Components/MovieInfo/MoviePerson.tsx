@@ -1,5 +1,4 @@
-import TMDB from "../../api/TMDB";
-import { ActorType, CrewType } from "../../api/TMDB.types";
+import { ActorType, CrewType } from "../../types/Person.types";
 
 type Props = { crewPerson?: CrewType; actorPerson?: ActorType };
 
@@ -21,10 +20,7 @@ const MoviePerson = ({ crewPerson, actorPerson }: Props) => {
       <h1>{actorPerson.name}</h1>
       <h3>{actorPerson.character}</h3>
       {actorPerson.profile_path && (
-        <img
-          alt={actorPerson.name}
-          src={TMDB.getImageURL(actorPerson.profile_path)}
-        />
+        <img alt={actorPerson.name} src={actorPerson.profile_path} />
       )}
     </div>
   );

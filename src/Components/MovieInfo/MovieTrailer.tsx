@@ -1,13 +1,13 @@
-import TMDB from "../../api/TMDB";
+import { useGetMovieVideos } from "../../hooks/MovieAPIHooks";
 
 type Props = { movieId: number };
 
 function MovieTrailer({ movieId }: Props) {
-  const videos = TMDB.useGetMovieVideos(movieId);
+  const videos = useGetMovieVideos(movieId);
 
-  if (videos && videos.results.length !== 0) {
-    const url = videos?.results
-      .filter((v) => v.type === "Trailer")
+  if (videos && videos.length !== 0) {
+    const url = videos
+      ?.filter((v) => v.type === "Trailer")
       .sort(
         (v, w) =>
           new Date(v.published_at).getTime() -

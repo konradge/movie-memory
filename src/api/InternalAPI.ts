@@ -14,8 +14,6 @@ export const typedFetch = <T>(
   input: string,
   init?: RequestInit | undefined
 ) => {
-  console.log(`Requesting ${input} with query ${init}`);
-
   return new Promise<T>((resolve, reject) => {
     fetch(input, init)
       .then((res) => resolve(res.json()))

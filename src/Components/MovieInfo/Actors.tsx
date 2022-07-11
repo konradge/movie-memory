@@ -1,12 +1,12 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import TMDB from "../../api/TMDB";
+import { useGetMovieCredits } from "../../hooks/MovieAPIHooks";
 import Actor from "./Actor";
 import ImageCarousel from "./ImageCarousel";
 
 type Props = { movieId: number };
 
 const Actors = ({ movieId }: Props) => {
-  const credits = TMDB.useGetMovieCredits(movieId);
+  const credits = useGetMovieCredits(movieId);
 
   if (credits === null) return <div>Loading...</div>;
 
